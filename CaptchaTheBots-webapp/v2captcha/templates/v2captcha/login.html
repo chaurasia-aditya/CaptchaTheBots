@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<h2 id="captchaText" style="text-align: center;">Pick the correct {{right}}</h2>
+
+<div class="container">
+
+
+        <div class="captcha-container">
+
+            <div>
+            <div class="captcha-grid" id="captchaGrid" >
+
+                {% for img in images %}
+                    <img class="captcha-photo" src="{% static img %}"></img>
+                {% endfor %}
+            </div>
+            <h1 style="text-align: center;">Normal Captcha</h1>
+        </div>
+        </div><br><br>
+
+        <div style="border-left:2px solid #040404;height:790px"></div>
+
+        <div class="captcha-container">
+            <div>
+
+            <div class="captcha-grid" id="captchaGrid" >
+
+                {% for noise in noisy %}
+                    <img class="captcha-photo" src="data:image/png;base64,{{ noise }}"></img>
+                {% endfor %}
+            </div>
+            <h1 style="text-align: center;">Ensemble Attack Captcha</h1>
+            </div> 
+        </div><br><br>
+
+</div>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        max-width: fit-content;
+        
+        margin: 0 auto;
+        padding: 20px;
+        border: #040404;
+        background-color: #f9f9f9;
+        flex-direction: row;
+        display: flex;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .captcha-container {
+        display: flex;
+        align-items: center;
+        background-color: #f9f9f9;
+        width: fit-content;
+        padding: 20px;
+    }
+
+
+    button {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        background-color: #fefffe;
+        border: none;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #bebebe;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        background-color: #040404;
+        color: white;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .captcha-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-color: #ddd;
+        gap: 10px;
+        padding: 20px;
+        z-index: 1;
+    }
+    
+    .captcha-photo {
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+
+</style>
+{% endblock %}

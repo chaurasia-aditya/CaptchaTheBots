@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+
+<style>
+  .image-container {
+    display: flex;
+    /* Use flexbox for horizontal alignment */
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line if needed */
+    justify-content: space-around;
+    /* Adjust as needed for spacing */
+    align-items: center;
+    /* Align items vertically in the center */
+    margin: 20px;
+    /* Add margin to the container for spacing */
+  }
+
+  .form-container {
+    display: flex;
+    /* Use flexbox for horizontal alignment */
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line if needed */
+    justify-content: space-around;
+    /* Adjust as needed for spacing */
+    align-items: center;
+    /* Align items vertically in the center */
+    margin: 20px;
+    /* Add margin to the container for spacing */
+  }
+
+  .image-container img {
+    max-width: 100%;
+    /* Make sure images don't exceed the container width */
+    margin-bottom: 10px;
+    /* Add bottom margin between images and headings */
+  }
+
+  .image-container h1 {
+    text-align: center;
+    /* Center the heading text */
+    margin: 0;
+    /* Remove any default margin on the heading */
+  }
+</style>
+
+<div class="container">
+  <div class="form-container">
+
+    <!--Django Form-->
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button class="btn btn-dark my-4" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <br>
+  <!--Django Model-->
+  {% if post %}
+
+  <div class="image-container">
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+        <div class="card h-100 p-4">
+          <img src="{{ post.image.url }}" class="card-img-top" height="250px" width="250px">
+          <h1>Normal</h1>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+
+  <br>
+
+  <div class="image-container">
+    {% for n in noisy %}
+    <div>
+      <img src="data:image/png;base64,{{ n.1 }}" class="card-img-top" alt="Noisy Image" height="250px" width="250px">
+      <h1>{{ n.0 }}</h1>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+
+
+{% endblock %}

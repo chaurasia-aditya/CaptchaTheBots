@@ -2,6 +2,8 @@
 
 This is a project for the CS 6220 course of Big Data Systems and Analytics.
 
+**This repository contains results of our explorations into protecting the CIFAR-10 dataset**
+
 Contributors:
 
 - Aditya Chaurasia
@@ -31,9 +33,6 @@ We classify the potency of different attacks on various classes, evaluating thei
 Finally, we investigate possible extensions of our approach to existing CAPTCHA systems, leveraging our findings to enhance the security and robustness of these systems.
 
 By combining static and dynamic approaches, along with class-based rankings, our project aims to provide a comprehensive solution to the challenges posed by advancing ML technologies in the realm of online photo protection.
-
-
-
 
 
 

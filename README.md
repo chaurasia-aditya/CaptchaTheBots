@@ -31,3 +31,35 @@ We classify the potency of different attacks on various classes, evaluating thei
 Finally, we investigate possible extensions of our approach to existing CAPTCHA systems, leveraging our findings to enhance the security and robustness of these systems.
 
 By combining static and dynamic approaches, along with class-based rankings, our project aims to provide a comprehensive solution to the challenges posed by advancing ML technologies in the realm of online photo protection.
+
+
+
+
+
+
+# CaptchaTheBots Website
+
+This is the sample web application that we created to showcase adversarial attacks and noise functions on real-life CAPTCHA images.
+We used the Kaggle dataset of scraped reCaptcha Images: https://www.kaggle.com/datasets/mikhailma/test-dataset 
+We use Django MVC Architecture to create three web pages. 
+
+
+How to run?
+
+Step 1. Create a virtual environment
+
+virtalenv venv
+> source venv/bin/activate
+
+Step 2. Install requirements
+> pip install -r requirements.txt
+
+Step 3. Start Server
+> python manage.py runserver
+
+Application should be up on localhost:8000
+CAPTCHA Page should be visible on http://localhost:8000/captcha/
+
+The base page http://localhost:8000/ may not work because we have hidden the Google reCAPTCHA API KEYS and SECRETS for security reasons
+
+

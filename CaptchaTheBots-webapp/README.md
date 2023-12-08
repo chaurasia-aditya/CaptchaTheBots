@@ -8,12 +8,12 @@ How to run?
 Step 1. Create a virtual environment
 
 virtalenv venv
-source venv/bin/activate
+> source venv/bin/activate
 
 Step 2. Install requirements
-pip install -r requirements.txt
+> pip install -r requirements.txt
 
 Step 3. Start Server
-python manage.py runserver
+> python manage.py runserver
 
 Application should be up on localhost:8000

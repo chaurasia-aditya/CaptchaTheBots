@@ -34,6 +34,38 @@ Finally, we investigate possible extensions of our approach to existing CAPTCHA 
 
 By combining static and dynamic approaches, along with class-based rankings, our project aims to provide a comprehensive solution to the challenges posed by advancing ML technologies in the realm of online photo protection.
 
+## Open Source Packages
+All of our models were derived from the [Keras API](https://keras.io/api/applications/). The models are written in python code totaling around 250 lines for each model.
+
+Our implementations for the FGSM, Hopskip, and PGD attacks were retrieved from the following [aggregated repository](https://github.com/Trusted-AI/adversarial-robustness-toolbox/wiki/ART-Attacks). The implementation is done in Python and contains roughly 200 lines per attack.
+
+
+## Dataset 
+We used the CIFAR10 dataset provided by [Keras.](https://keras.io/api/datasets/cifar10/) CIFAR10 contains 50,000 training images and 10,000 testing images divided into 10 classes (each featuring a specific object). Each image is of size 32x32.
+
+## Performance Measurement Tools
+Please see `group14.FinalReport.pdf` which contains our analysis and responses. The file can be found on canvas as a submission by Aditya Chaurasia. As per the Georgia Tech honor code, our final report is not available to the public.
+
+## Usage
+Follow the respective `readme` document, if available, for each subfolder. Most of the material is self-contained in notebooks and thus can be run sequentially out-of-the-box.
+
+## Repository Structure
+The `Adversarial Attacks` folder contains the notebooks used to generate the perturbed images using our three adversarial attacks (FGSM, Hopskip, PGD) on our test models.
+
+The `AttackTransfer` folder contains the notebook that was used to explore transferability by applying perturbed images on non-directed models. Results are contained in the Excel file.
+
+The `CaptchaTheBots-webapp` folder contains the repository for our demo web application. The web application is purely for visualization purposes with regards to a simulated CAPTCHA environment. Instructions are located in the `readme`` for the folder.
+
+The `model training` folder contains the notebooks used to train our models (CNN, Resnet50, Resnet101, VGG, VGG_aug) on the CIFAR10 dataset.
+
+The `Noise tests` folder contains the notebooks used to evaluate the initial simple noise functions (Salt & Pepper, Speckle, Gaussian, Poisson) on our models. These results were not included in our final report.
+
+The `Ranking Attacks` folder contains the notebooks that were utilized to construct the initial system for comparing and ranking different adversarial attacks in a CAPTCHA construction. See the `readme`` for further elaboration.
+
+`Attacks_easy_medium_hard.ipynb` was used to generate the Easy, Medium, and Hard scenarios that were shown in our final report.
+
+`StaticAccuracy` was used to derive the base accuracies for the models as well as the accuracies for the simulations of the 9-Grid CAPTCHA system.
+
 
 
 # CaptchaTheBots Website
@@ -60,5 +92,3 @@ Application should be up on localhost:8000
 CAPTCHA Page should be visible on http://localhost:8000/captcha/
 
 The base page http://localhost:8000/ may not work because we have hidden the Google reCAPTCHA API KEYS and SECRETS for security reasons
-
-
